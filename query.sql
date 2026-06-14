@@ -1,7 +1,7 @@
     CREATE DATABASE "Football Ticket Booking System";
 
     CREATE TABLE Users (
-        user_id SERIAL,
+        user_id INT,
         full_name VARCHAR(100) NOT NULL,
         email VARCHAR(100) NOT NULL,
         role VARCHAR(50) NOT NULL,
@@ -13,8 +13,8 @@
         CONSTRAINT chk_users_role CHECK (role IN ('Ticket Manager', 'Football Fan'))
     );
 
-    CREATE TABLE Matches (
-        match_id SERIAL,
+    CREATE TABLE Matcheis (
+        match_id INT,
         fixture VARCHAR(150) NOT NULL,
         tournament_category VARCHAR(100) NOT NULL,
         base_ticket_price DECIMAL(10, 2) NOT NULL,
@@ -27,7 +27,7 @@
     );
 
     CREATE TABLE Bookings (
-        booking_id SERIAL,
+        booking_id INT,
         user_id INT NOT NULL,
         match_id INT NOT NULL,
         seat_number VARCHAR(20),
