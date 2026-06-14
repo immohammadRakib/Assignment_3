@@ -34,15 +34,14 @@ CREATE TABLE Bookings (
         user_id INT NOT NULL,
         match_id INT NOT NULL,
         seat_number VARCHAR(20),
-        payment_status VARCHAR(50),
+        payment_status payment_status_type,
         total_cost DECIMAL(10, 2) NOT NULL,
 
 -- Constraints
 CONSTRAINT pk_bookings PRIMARY KEY (booking_id),
         CONSTRAINT fk_bookings_user FOREIGN KEY (user_id) REFERENCES Users(user_id) ON DELETE CASCADE,
         CONSTRAINT fk_bookings_match FOREIGN KEY (match_id) REFERENCES Matches(match_id) ON DELETE CASCADE,
-        CONSTRAINT chk_bookings_cost CHECK (total_cost >= 0),
-        CONSTRAINT chk_bookings_status CHECK (payment_status IN ('Pending', 'Confirmed', 'Cancelled', 'Refunded') OR payment_status IS NULL)
+        CONSTRAINT chk_bookings_cost CHECK (total_cost >= 0)
     );
 
 -- INSERT DATA
