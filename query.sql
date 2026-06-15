@@ -60,6 +60,4 @@ SELECT
     base_ticket_price
 FROM Matches
 ORDER BY base_ticket_price DESC
-LIMIT 2
-OFFSET
-    1;
+LIMIT 2 OFFSET 1;
