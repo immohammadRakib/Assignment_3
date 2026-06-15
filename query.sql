@@ -1,10 +1,8 @@
 CREATE DATABASE "Football Ticket Booking System";
 
+
+
 CREATE TYPE user_role AS ENUM ('Ticket Manager', 'Football Fan');
-CREATE TYPE match_status_type AS ENUM ('Available', 'Selling Fast', 'Sold Out', 'Postponed');
-CREATE TYPE payment_status_type AS ENUM ('Pending', 'Confirmed', 'Cancelled', 'Refunded');
-
-
 CREATE TABLE Users (
         user_id INT,
         full_name VARCHAR(100) NOT NULL,
@@ -17,6 +15,8 @@ CONSTRAINT pk_users PRIMARY KEY (user_id),
         CONSTRAINT uk_users_email UNIQUE (email)
     );
 
+
+CREATE TYPE match_status_type AS ENUM ('Available', 'Selling Fast', 'Sold Out', 'Postponed');
 CREATE TABLE Matches (
         match_id INT,
         fixture VARCHAR(150) NOT NULL,
@@ -29,6 +29,8 @@ CONSTRAINT pk_matches PRIMARY KEY (match_id),
         CONSTRAINT chk_matches_price CHECK (base_ticket_price >= 0)
     );
 
+
+CREATE TYPE payment_status_type AS ENUM ('Pending', 'Confirmed', 'Cancelled', 'Refunded');
 CREATE TABLE Bookings (
         booking_id INT,
         user_id INT NOT NULL,
