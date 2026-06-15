@@ -24,7 +24,7 @@ SELECT
     user_id,
     match_id,
     COALESCE(
-        payment_status,
+        payment_status::TEXT,
         'Action Required'
     ) AS systematic_status
 FROM Bookings
